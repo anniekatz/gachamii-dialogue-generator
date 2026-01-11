@@ -1,34 +1,26 @@
-# Animalese Audio Generator
+# Gachamii Dialogue Generator
 
-## General info
-This project allows you to generate audio from text in the style of animalese from the Animal Crossing games. 
+- Dialogue generator changed for use in Gachamii mobile game
+- Forked from [equalo-official](https://github.com/equalo-official/animalese-generator) and using original sounds from that repo
+- Rebuilt with python 3.13.3
 
-## Usage
-
-```
-$ ./animalese.py the quick brown fox jumps over the lazy dog
-```
-
-The program accepts two options, one to control the pitch (available options: 'lowest', 'low', 'med', 'high')
-and one to control the output file
-```
-$ ./animalese.py the quick brown fox jumps over the lazy dog --pitch high --out output_name.wav
+## Requirements
+```sh
+pip install -r requirements.txt
 ```
 
+## Animal-crossing-esque dialogue creator
+```sh
+python animalese.py "Enter dialogue to convert here" --pitch {low,medium,default,high) --tempo {0.0-~2.0} --outfile {ex. my_dialogue.wav}
+# pitch changes voice pitch; default is "default"
+# tempo > 1.0 => faster speech (shorter); default is 0.75
+```
 
-## Technologies
-Project is created with:
-* pydub
+## Kirby-fy an existing mp3 or wav file
+```sh
+python kirbify.py {input file path/name; ex. input_sound.mp3} --octaves {0.0 to ~2.0} --tempo {0.0-~2.0} --out {outfile path/name.wav; ex. kirbified_sound.wav}
+# tempo > 1.0 => faster speech (shorter); default is 1.0
+# octaves > 1.0 => higher-pitched; default is 1.0
+```
 
-## Installing required dependencies
-```
-$ pip install pydub
-```
-[You'll also need to install `ffmpeg` or `libav` for this to work](https://github.com/jiaaro/pydub#dependencies)
-```
-$ brew install ffmpeg
-```
-or
-```
-$ brew install libav
-```
+
